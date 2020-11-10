@@ -80,8 +80,8 @@ github.com/clearmatics/autonity v0.3.0/go.mod h1:7RjAqB+FxWn8Rc6HS8Xahc0jPBT2ioJ
 github.com/clearmatics/binding-helpers v1.1.0 h1:JGEdTNg3v3F4nvzHFjxL2Jf+3lBIDHsARLQKvYr0n1c=
 github.com/clearmatics/binding-helpers v1.1.0/go.mod h1:qVePAT2s+Yii+PadqBnxHuOpbWZ81YEOR+tARNQPEyc=
 github.com/clearmatics/dcn-common v0.0.0-20200116135812-da1147e804ea/go.mod h1:gLf/M3D9HC9N7/b4oKl+sE6dwFFnD+gi1lASvfeZyAI=
-github.com/clearmatics/dcn-common v0.1.9 h1:8YAW0quoloOaX4D8AUBmrj0tqgjpSstx9IOcO0aRp7E=
-github.com/clearmatics/dcn-common v0.1.9/go.mod h1:UlKRAvk18+TJNV2+pgsF+3rKvN0npVt7MB5WkT3xbWk=
+github.com/clearmatics/dcn-common v0.1.11-0.20201110104044-69559e954fed h1:92GEk+Lf2hWGZvQP1h4GfmfPx6jJRadtfPQrzTd94T0=
+github.com/clearmatics/dcn-common v0.1.11-0.20201110104044-69559e954fed/go.mod h1:UlKRAvk18+TJNV2+pgsF+3rKvN0npVt7MB5WkT3xbWk=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/daragao/merkletree v0.2.1-0.20191121175426-c0b117e2f1f7/go.mod h1:EHC4+/YNG1Dk5kjtm6tiYNC7xM9KbwM7JjuL4GoP8XA=
 github.com/dave/jennifer v1.2.0/go.mod h1:fIb+770HOpJ2fmN9EPPKOqm1vMGhB+TwXKMZhrIygKg=

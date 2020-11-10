@@ -13,6 +13,7 @@ import (
 	"github.com/clearmatics/autonity/common"
 	"github.com/clearmatics/autonity/crypto/secp256k1"
 	"github.com/clearmatics/autonity/ethclient"
+	commoninterface "github.com/clearmatics/dcn-common/interfaces/valuationprovider"
 	valuationprovider "github.com/clearmatics/valuation-provider-bindings/binding"
 )
 
@@ -48,7 +49,7 @@ func getKeystorePrivateKey(keyFile, password string) (*ecdsa.PrivateKey, error) 
 type ValuationProvider int
 
 // NewKeyed create session with private key
-func (vp ValuationProvider) NewKeyed(uri string, address string, D *big.Int, gasLimit uint64, gasPrice *big.Int) (BindingInterface, error) {
+func (vp ValuationProvider) NewKeyed(uri string, address string, D *big.Int, gasLimit uint64, gasPrice *big.Int) (commoninterface.ValuationProviderInterface, error) {
 	_ = ValuationProviderFactory
 
 	contract, err := getContract(uri, address)
@@ -75,7 +76,7 @@ func (vp ValuationProvider) NewKeyed(uri string, address string, D *big.Int, gas
 }
 
 // New create session with keystore
-func (vp ValuationProvider) New(uri string, address, string, keyFile string, password string, gasLimit uint64, gasPrice *big.Int) (BindingInterface, error) {
+func (vp ValuationProvider) New(uri string, address, string, keyFile string, password string, gasLimit uint64, gasPrice *big.Int) (commoninterface.ValuationProviderInterface, error) {
 	psk, err := getKeystorePrivateKey(keyFile, password)
 	if err != nil {
 		return nil, err
