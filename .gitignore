@@ -1,2 +1,4 @@
 # Mac meta data
 .DS_Store
+
+*.so
