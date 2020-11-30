@@ -1,4 +1,5 @@
 # Mac meta data
 .DS_Store
+tmp_contracts
 
 *.so

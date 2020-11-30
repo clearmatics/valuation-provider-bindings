@@ -3,6 +3,8 @@
 package main
 
 import (
+	"math/big"
+
 	"github.com/clearmatics/binding-helpers/conversion"
 	commontypes "github.com/clearmatics/dcn-common/types"
 	valuationprovider "github.com/clearmatics/valuation-provider-bindings/binding"
@@ -25,9 +27,16 @@ func (w worker) RequestValuation() (*commontypes.Hash, error) {
 	return &result, nil
 }
 
-func (w worker) SubmitValuation(to commontypes.Address, valuation []byte) (*commontypes.Hash, error) {
-	addrCommon := conversion.ToCommonAddress(to)
-	transaction, err := w.session.SubmitValuation(addrCommon, valuation)
+func (w worker) SubmitValuation(
+	to commontypes.Address,
+	tradesRootHash [32]byte,
+	variationMargin *big.Int,
+	payee commontypes.Address,
+	exchangeRates []*big.Int) (*commontypes.Hash, error) {
+
+	toCommon := conversion.ToCommonAddress(to)
+	payeeCommon := conversion.ToCommonAddress(payee)
+	transaction, err := w.session.SubmitValuation(toCommon, tradesRootHash, variationMargin, payeeCommon, exchangeRates)
 	if err != nil {
 		return nil, err
 	}
