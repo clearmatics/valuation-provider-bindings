@@ -8,7 +8,7 @@ require (
 	github.com/btcsuite/btcd v0.21.0-beta // indirect
 	github.com/clearmatics/autonity v0.3.0
 	github.com/clearmatics/binding-helpers v1.1.0
-	github.com/clearmatics/dcn-common v0.1.11-0.20201110122225-6be8d60add22
+	github.com/clearmatics/dcn-common v0.1.11-0.20201130143825-9b747069e6e7
 	github.com/docker/docker v1.13.1 // indirect
 	github.com/edsrzf/mmap-go v1.0.0 // indirect
 	github.com/elastic/gosigar v0.11.0 // indirect
