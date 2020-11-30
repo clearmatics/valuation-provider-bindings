@@ -27,11 +27,11 @@ var (
 )
 
 // ICMCABI is the input ABI used to generate the binding from.
-const ICMCABI = "[{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"valuation\",\"type\":\"bytes\"}],\"name\":\"executeEnforcement\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const ICMCABI = "[{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"tradesRootHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"variationMargin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"exchangeRates\",\"type\":\"uint256[]\"}],\"name\":\"executeEnforcement\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // ICMCFuncSigs maps the 4-byte function signature to its string representation.
 var ICMCFuncSigs = map[string]string{
-	"e4a74092": "executeEnforcement(bytes)",
+	"16e17622": "executeEnforcement(bytes32,uint256,address,uint256[])",
 }
 
 // ICMC is an auto generated Go binding around an Ethereum contract.
@@ -176,34 +176,34 @@ func (_ICMC *ICMCTransactorRaw) Transact(opts *bind.TransactOpts, method string,
 	return _ICMC.Contract.contract.Transact(opts, method, params...)
 }
 
-// ExecuteEnforcement is a paid mutator transaction binding the contract method 0xe4a74092.
+// ExecuteEnforcement is a paid mutator transaction binding the contract method 0x16e17622.
 //
-// Solidity: function executeEnforcement(bytes valuation) returns()
-func (_ICMC *ICMCTransactor) ExecuteEnforcement(opts *bind.TransactOpts, valuation []byte) (*types.Transaction, error) {
-	return _ICMC.contract.Transact(opts, "executeEnforcement", valuation)
+// Solidity: function executeEnforcement(bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ICMC *ICMCTransactor) ExecuteEnforcement(opts *bind.TransactOpts, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ICMC.contract.Transact(opts, "executeEnforcement", tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// ExecuteEnforcement is a paid mutator transaction binding the contract method 0xe4a74092.
+// ExecuteEnforcement is a paid mutator transaction binding the contract method 0x16e17622.
 //
-// Solidity: function executeEnforcement(bytes valuation) returns()
-func (_ICMC *ICMCSession) ExecuteEnforcement(valuation []byte) (*types.Transaction, error) {
-	return _ICMC.Contract.ExecuteEnforcement(&_ICMC.TransactOpts, valuation)
+// Solidity: function executeEnforcement(bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ICMC *ICMCSession) ExecuteEnforcement(tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ICMC.Contract.ExecuteEnforcement(&_ICMC.TransactOpts, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// ExecuteEnforcement is a paid mutator transaction binding the contract method 0xe4a74092.
+// ExecuteEnforcement is a paid mutator transaction binding the contract method 0x16e17622.
 //
-// Solidity: function executeEnforcement(bytes valuation) returns()
-func (_ICMC *ICMCTransactorSession) ExecuteEnforcement(valuation []byte) (*types.Transaction, error) {
-	return _ICMC.Contract.ExecuteEnforcement(&_ICMC.TransactOpts, valuation)
+// Solidity: function executeEnforcement(bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ICMC *ICMCTransactorSession) ExecuteEnforcement(tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ICMC.Contract.ExecuteEnforcement(&_ICMC.TransactOpts, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
 // IValuationProviderABI is the input ABI used to generate the binding from.
-const IValuationProviderABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"ValuationRequestReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"valuation\",\"type\":\"bytes\"}],\"name\":\"ValuationRequestSubmitted\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"requestValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"valuation\",\"type\":\"bytes\"}],\"name\":\"submitValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const IValuationProviderABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"ValuationRequestReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"tradesRootHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"variationMargin\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"exchangeRates\",\"type\":\"uint256[]\"}],\"name\":\"ValuationRequestSubmitted\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"requestValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"tradesRootHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"variationMargin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"exchangeRates\",\"type\":\"uint256[]\"}],\"name\":\"submitValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // IValuationProviderFuncSigs maps the 4-byte function signature to its string representation.
 var IValuationProviderFuncSigs = map[string]string{
 	"b16b1f9d": "requestValuation()",
-	"a333d322": "submitValuation(address,bytes)",
+	"dca1b843": "submitValuation(address,bytes32,uint256,address,uint256[])",
 }
 
 // IValuationProvider is an auto generated Go binding around an Ethereum contract.
@@ -369,25 +369,25 @@ func (_IValuationProvider *IValuationProviderTransactorSession) RequestValuation
 	return _IValuationProvider.Contract.RequestValuation(&_IValuationProvider.TransactOpts)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_IValuationProvider *IValuationProviderTransactor) SubmitValuation(opts *bind.TransactOpts, to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _IValuationProvider.contract.Transact(opts, "submitValuation", to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_IValuationProvider *IValuationProviderTransactor) SubmitValuation(opts *bind.TransactOpts, to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _IValuationProvider.contract.Transact(opts, "submitValuation", to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_IValuationProvider *IValuationProviderSession) SubmitValuation(to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _IValuationProvider.Contract.SubmitValuation(&_IValuationProvider.TransactOpts, to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_IValuationProvider *IValuationProviderSession) SubmitValuation(to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _IValuationProvider.Contract.SubmitValuation(&_IValuationProvider.TransactOpts, to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_IValuationProvider *IValuationProviderTransactorSession) SubmitValuation(to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _IValuationProvider.Contract.SubmitValuation(&_IValuationProvider.TransactOpts, to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_IValuationProvider *IValuationProviderTransactorSession) SubmitValuation(to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _IValuationProvider.Contract.SubmitValuation(&_IValuationProvider.TransactOpts, to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
 // IValuationProviderValuationRequestReceivedIterator is returned from FilterValuationRequestReceived and is used to iterate over the raw logs and unpacked data for ValuationRequestReceived events raised by the IValuationProvider contract.
@@ -592,14 +592,17 @@ func (it *IValuationProviderValuationRequestSubmittedIterator) Close() error {
 
 // IValuationProviderValuationRequestSubmitted represents a ValuationRequestSubmitted event raised by the IValuationProvider contract.
 type IValuationProviderValuationRequestSubmitted struct {
-	To        common.Address
-	Valuation []byte
-	Raw       types.Log // Blockchain specific contextual infos
+	To              common.Address
+	TradesRootHash  [32]byte
+	VariationMargin *big.Int
+	Payee           common.Address
+	ExchangeRates   []*big.Int
+	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterValuationRequestSubmitted is a free log retrieval operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// FilterValuationRequestSubmitted is a free log retrieval operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_IValuationProvider *IValuationProviderFilterer) FilterValuationRequestSubmitted(opts *bind.FilterOpts) (*IValuationProviderValuationRequestSubmittedIterator, error) {
 
 	logs, sub, err := _IValuationProvider.contract.FilterLogs(opts, "ValuationRequestSubmitted")
@@ -609,9 +612,9 @@ func (_IValuationProvider *IValuationProviderFilterer) FilterValuationRequestSub
 	return &IValuationProviderValuationRequestSubmittedIterator{contract: _IValuationProvider.contract, event: "ValuationRequestSubmitted", logs: logs, sub: sub}, nil
 }
 
-// WatchValuationRequestSubmitted is a free log subscription operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// WatchValuationRequestSubmitted is a free log subscription operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_IValuationProvider *IValuationProviderFilterer) WatchValuationRequestSubmitted(opts *bind.WatchOpts, sink chan<- *IValuationProviderValuationRequestSubmitted) (event.Subscription, error) {
 
 	logs, sub, err := _IValuationProvider.contract.WatchLogs(opts, "ValuationRequestSubmitted")
@@ -646,9 +649,9 @@ func (_IValuationProvider *IValuationProviderFilterer) WatchValuationRequestSubm
 	}), nil
 }
 
-// ParseValuationRequestSubmitted is a log parse operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// ParseValuationRequestSubmitted is a log parse operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_IValuationProvider *IValuationProviderFilterer) ParseValuationRequestSubmitted(log types.Log) (*IValuationProviderValuationRequestSubmitted, error) {
 	event := new(IValuationProviderValuationRequestSubmitted)
 	if err := _IValuationProvider.contract.UnpackLog(event, "ValuationRequestSubmitted", log); err != nil {
@@ -658,16 +661,16 @@ func (_IValuationProvider *IValuationProviderFilterer) ParseValuationRequestSubm
 }
 
 // ValuationProviderABI is the input ABI used to generate the binding from.
-const ValuationProviderABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"ValuationRequestReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"valuation\",\"type\":\"bytes\"}],\"name\":\"ValuationRequestSubmitted\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"requestValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"valuation\",\"type\":\"bytes\"}],\"name\":\"submitValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const ValuationProviderABI = "[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"}],\"name\":\"ValuationRequestReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"tradesRootHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"variationMargin\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"exchangeRates\",\"type\":\"uint256[]\"}],\"name\":\"ValuationRequestSubmitted\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"requestValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"tradesRootHash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"variationMargin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"payee\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"exchangeRates\",\"type\":\"uint256[]\"}],\"name\":\"submitValuation\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // ValuationProviderFuncSigs maps the 4-byte function signature to its string representation.
 var ValuationProviderFuncSigs = map[string]string{
 	"b16b1f9d": "requestValuation()",
-	"a333d322": "submitValuation(address,bytes)",
+	"dca1b843": "submitValuation(address,bytes32,uint256,address,uint256[])",
 }
 
 // ValuationProviderBin is the compiled bytecode used for deploying new contracts.
-var ValuationProviderBin = "0x608060405234801561001057600080fd5b5061023a806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063a333d3221461003b578063b16b1f9d146100bd575b600080fd5b6100bb6004803603604081101561005157600080fd5b6001600160a01b03823516919081019060408101602082013564010000000081111561007c57600080fd5b82018360208201111561008e57600080fd5b803590602001918460018302840111640100000000831117156100b057600080fd5b5090925090506100c5565b005b6100bb6101d0565b604051637253a04960e11b8152602060048201908152602482018390526001600160a01b0385169163e4a740929185918591908190604401848480828437600081840152601f19601f8201169050808301925050509350505050600060405180830381600087803b15801561013957600080fd5b505af115801561014d573d6000803e3d6000fd5b505050507f7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d83838360405180846001600160a01b03166001600160a01b03168152602001806020018281038252848482818152602001925080828437600083820152604051601f909101601f1916909201829003965090945050505050a1505050565b6040805133815290517f9112d470c4799e9a8541023cffabd2adbd83b00209706a1516542e741af417af9181900360200190a156fea265627a7a723158201a05323d412ca727bd830d532d3294a0bee84059ae171798009c3c85a147f1c164736f6c63430005110032"
+var ValuationProviderBin = "0x608060405234801561001057600080fd5b506102a9806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063b16b1f9d1461003b578063dca1b84314610045575b600080fd5b6100436100d9565b005b610043600480360360a081101561005b57600080fd5b6001600160a01b038235811692602081013592604082013592606083013516919081019060a08101608082013564010000000081111561009a57600080fd5b8201836020820111156100ac57600080fd5b803590602001918460208302840111640100000000831117156100ce57600080fd5b50909250905061010e565b6040805133815290517f9112d470c4799e9a8541023cffabd2adbd83b00209706a1516542e741af417af9181900360200190a1565b856001600160a01b03166316e1762286868686866040518663ffffffff1660e01b815260040180868152602001858152602001846001600160a01b03166001600160a01b03168152602001806020018281038252848482818152602001925060200280828437600081840152601f19601f8201169050808301925050509650505050505050600060405180830381600087803b1580156101ad57600080fd5b505af11580156101c1573d6000803e3d6000fd5b505050507f83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e9186868686868660405180876001600160a01b03166001600160a01b03168152602001868152602001858152602001846001600160a01b03166001600160a01b03168152602001806020018281038252848482818152602001925060200280828437600083820152604051601f909101601f1916909201829003995090975050505050505050a150505050505056fea265627a7a723158209834f05d202fdc9280eb94b6758da89f60968d02f45a2ffe4ecd0aaff5387a8164736f6c63430005110032"
 
 // DeployValuationProvider deploys a new Ethereum contract, binding an instance of ValuationProvider to it.
 func DeployValuationProvider(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *ValuationProvider, error) {
@@ -846,25 +849,25 @@ func (_ValuationProvider *ValuationProviderTransactorSession) RequestValuation()
 	return _ValuationProvider.Contract.RequestValuation(&_ValuationProvider.TransactOpts)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_ValuationProvider *ValuationProviderTransactor) SubmitValuation(opts *bind.TransactOpts, to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _ValuationProvider.contract.Transact(opts, "submitValuation", to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ValuationProvider *ValuationProviderTransactor) SubmitValuation(opts *bind.TransactOpts, to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ValuationProvider.contract.Transact(opts, "submitValuation", to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_ValuationProvider *ValuationProviderSession) SubmitValuation(to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _ValuationProvider.Contract.SubmitValuation(&_ValuationProvider.TransactOpts, to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ValuationProvider *ValuationProviderSession) SubmitValuation(to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ValuationProvider.Contract.SubmitValuation(&_ValuationProvider.TransactOpts, to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
-// SubmitValuation is a paid mutator transaction binding the contract method 0xa333d322.
+// SubmitValuation is a paid mutator transaction binding the contract method 0xdca1b843.
 //
-// Solidity: function submitValuation(address to, bytes valuation) returns()
-func (_ValuationProvider *ValuationProviderTransactorSession) SubmitValuation(to common.Address, valuation []byte) (*types.Transaction, error) {
-	return _ValuationProvider.Contract.SubmitValuation(&_ValuationProvider.TransactOpts, to, valuation)
+// Solidity: function submitValuation(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates) returns()
+func (_ValuationProvider *ValuationProviderTransactorSession) SubmitValuation(to common.Address, tradesRootHash [32]byte, variationMargin *big.Int, payee common.Address, exchangeRates []*big.Int) (*types.Transaction, error) {
+	return _ValuationProvider.Contract.SubmitValuation(&_ValuationProvider.TransactOpts, to, tradesRootHash, variationMargin, payee, exchangeRates)
 }
 
 // ValuationProviderValuationRequestReceivedIterator is returned from FilterValuationRequestReceived and is used to iterate over the raw logs and unpacked data for ValuationRequestReceived events raised by the ValuationProvider contract.
@@ -1069,14 +1072,17 @@ func (it *ValuationProviderValuationRequestSubmittedIterator) Close() error {
 
 // ValuationProviderValuationRequestSubmitted represents a ValuationRequestSubmitted event raised by the ValuationProvider contract.
 type ValuationProviderValuationRequestSubmitted struct {
-	To        common.Address
-	Valuation []byte
-	Raw       types.Log // Blockchain specific contextual infos
+	To              common.Address
+	TradesRootHash  [32]byte
+	VariationMargin *big.Int
+	Payee           common.Address
+	ExchangeRates   []*big.Int
+	Raw             types.Log // Blockchain specific contextual infos
 }
 
-// FilterValuationRequestSubmitted is a free log retrieval operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// FilterValuationRequestSubmitted is a free log retrieval operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_ValuationProvider *ValuationProviderFilterer) FilterValuationRequestSubmitted(opts *bind.FilterOpts) (*ValuationProviderValuationRequestSubmittedIterator, error) {
 
 	logs, sub, err := _ValuationProvider.contract.FilterLogs(opts, "ValuationRequestSubmitted")
@@ -1086,9 +1092,9 @@ func (_ValuationProvider *ValuationProviderFilterer) FilterValuationRequestSubmi
 	return &ValuationProviderValuationRequestSubmittedIterator{contract: _ValuationProvider.contract, event: "ValuationRequestSubmitted", logs: logs, sub: sub}, nil
 }
 
-// WatchValuationRequestSubmitted is a free log subscription operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// WatchValuationRequestSubmitted is a free log subscription operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_ValuationProvider *ValuationProviderFilterer) WatchValuationRequestSubmitted(opts *bind.WatchOpts, sink chan<- *ValuationProviderValuationRequestSubmitted) (event.Subscription, error) {
 
 	logs, sub, err := _ValuationProvider.contract.WatchLogs(opts, "ValuationRequestSubmitted")
@@ -1123,9 +1129,9 @@ func (_ValuationProvider *ValuationProviderFilterer) WatchValuationRequestSubmit
 	}), nil
 }
 
-// ParseValuationRequestSubmitted is a log parse operation binding the contract event 0x7e33467a61041e8a9bfaede503107cae7a4fe823f782886635119ffb9f68f36d.
+// ParseValuationRequestSubmitted is a log parse operation binding the contract event 0x83735d147986dc844c29ad9a94d600c1b3514494d5de82c9842b9fbbbf136e91.
 //
-// Solidity: event ValuationRequestSubmitted(address to, bytes valuation)
+// Solidity: event ValuationRequestSubmitted(address to, bytes32 tradesRootHash, uint256 variationMargin, address payee, uint256[] exchangeRates)
 func (_ValuationProvider *ValuationProviderFilterer) ParseValuationRequestSubmitted(log types.Log) (*ValuationProviderValuationRequestSubmitted, error) {
 	event := new(ValuationProviderValuationRequestSubmitted)
 	if err := _ValuationProvider.contract.UnpackLog(event, "ValuationRequestSubmitted", log); err != nil {
